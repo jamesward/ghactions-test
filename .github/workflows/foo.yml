@@ -5,4 +5,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: |
-          cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 64 | head -n 1
+          dd bs=18 count=1 if=/dev/urandom | base64 | tr +/ _.
