@@ -5,4 +5,5 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: |
-          dd bs=18 count=1 if=/dev/urandom | base64 | tr +/ _.
+          declare db_pass=$(dd bs=24 count=1 if=/dev/urandom | base64 | tr +/ _.)
+          echo $db_pass
